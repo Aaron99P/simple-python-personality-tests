@@ -1,8 +1,8 @@
 import random
 
 #Import the questionnaries
-import NEOPIR
-import MiniIPIP
+import questionnaries.NEOPIR as NEOPIR
+import questionnaries.MiniIPIP as MiniIPIP
 
 
 trait_scores = {
