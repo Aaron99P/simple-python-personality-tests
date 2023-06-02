@@ -1,3 +1,6 @@
+import random
+
+#Import the questionnaries
 import NEOPIR
 import MiniIPIP
 
@@ -38,8 +41,30 @@ def choose_test():
         return choose_test()
 
 
+def choose_shuffle(test_questions):
+    print()
+    print('Shuffle questions:')
+    print('------------')
+    print('1. Yes. (Recommended)')
+    print('2. No')
+    print()
+    response = input("Enter the number of the option: ")
+    if (int(response)==1):
+        random.shuffle(test_questions.questions)
+    elif (int(response)==2):
+        pass
+    else:
+        print()
+        print('*****************')
+        print('Error. Choose a valid option')
+        print('*****************')
+        print()
+        return choose_shuffle()
+
+
 def administer_test():
     test_questions = choose_test()
+    choose_shuffle(test_questions)
 
     #Test
     for trait, question, value in test_questions.questions:
