@@ -5,15 +5,15 @@ num_questions = 50
 questions = [
     #extraversion questions
     ["Extraversion", "Feel comfortable around people", 1],
-  	["Extraversion", "Make friends easily", 1],
-  	["Extraversion", "Am skilled in handling social situations", 1],
-  	["Extraversion", "Am the life of the party", 1],
-  	["Extraversion", "Know how to captivate people", 1],
+    ["Extraversion", "Make friends easily", 1],
+    ["Extraversion", "Am skilled in handling social situations", 1],
+    ["Extraversion", "Am the life of the party", 1],
+    ["Extraversion", "Know how to captivate people", 1],
     ["Extraversion", "Have little to say", -1],
-  	["Extraversion", "Keep in the background", -1],
-  	["Extraversion", "Would describe my experiences as somewhat dull", -1],
-  	["Extraversion", "Don't like to draw attention to myself", -1],
-  	["Extraversion", "Don't talk a lot", -1],
+    ["Extraversion", "Keep in the background", -1],
+    ["Extraversion", "Would describe my experiences as somewhat dull", -1],
+    ["Extraversion", "Don't like to draw attention to myself", -1],
+    ["Extraversion", "Don't talk a lot", -1],
 
     #openness questions
     ["Openness", "Believe in the importance of art.", 1],
