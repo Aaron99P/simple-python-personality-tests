@@ -23,7 +23,7 @@ def update_score(trait, response, value):
 def choose_test():
     print()
     print('Choose one of the available questionnaries:')
-    print('------------')
+    print('-----------------------------')
     print('1. NEO-PI-R')
     print('2. Mini-IPIP')
     print()
@@ -34,9 +34,9 @@ def choose_test():
         return MiniIPIP
     else:
         print()
-        print('*****************')
-        print('Error. Choose a valid questionnarie')
-        print('*****************')
+        print('***************************')
+        print('Error. Choose a valid option')
+        print('***************************')
         print()
         return choose_test()
 
@@ -44,7 +44,7 @@ def choose_test():
 def choose_shuffle(test_questions):
     print()
     print('Shuffle questions:')
-    print('------------')
+    print('-----------------------------')
     print('1. Yes. (Recommended)')
     print('2. No')
     print()
@@ -60,6 +60,23 @@ def choose_shuffle(test_questions):
         print('*****************')
         print()
         return choose_shuffle()
+
+
+def save_results():
+    print()
+    print("Saving results")
+    print('-----------------------------')
+    print()
+    name = input("Write the name under which you want to save the results: ")
+    f = open("results.txt", "a")
+    f.write(f'{name}\n')
+    f.write('-----------------------------\n')
+    for trait, score in trait_scores.items():
+        min_value = score["min_score"]
+        max_value = score["max_score"]
+        normalized_value = 2 * (score["score"] - min_value) / (max_value - min_value) - 1
+        f.write(f'{trait}: {round(normalized_value, 2)}\n')
+    f.write('\n\n')
 
 
 def administer_test():
@@ -80,9 +97,7 @@ def administer_test():
         response = input("Enter your response (1-5): ")
         update_score(trait, response, value)
         print()
-        #print(trait_scores)
-        print('-------------------------')
-            
+        print("-----------------------------")
 
     #Show results
     print("\n\n")
@@ -92,8 +107,10 @@ def administer_test():
         min_value = score["min_score"]
         max_value = score["max_score"]
         normalized_value = 2 * (score["score"] - min_value) / (max_value - min_value) - 1
-        #print(f'{trait}: {score["score"]} -> {normalized_value}')
-        print(f'{trait}: {normalized_value}')
+        print(f'{trait}: {round(normalized_value, 2)}')
+
+    #Save results
+    save_results() 
     
 
 if __name__ == "__main__":
