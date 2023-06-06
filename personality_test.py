@@ -1,4 +1,5 @@
 import random
+import os
 
 #Import the questionnaries
 import questionnaries.NEOPIR as NEOPIR
@@ -68,15 +69,30 @@ def save_results():
     print('-----------------------------')
     print()
     name = input("Write the name under which you want to save the results: ")
-    f = open("results.txt", "a")
+    path = "results/"
+    if not os.path.exists(path):
+        os.makedirs(path)
+    f = open("results/results.txt", "a")
+
     f.write(f'{name}\n')
+    f.write('*****************************\n\n')
+    f.write("Results on a scale of -1 to 1\n")
     f.write('-----------------------------\n')
     for trait, score in trait_scores.items():
         min_value = score["min_score"]
         max_value = score["max_score"]
         normalized_value = 2 * (score["score"] - min_value) / (max_value - min_value) - 1
         f.write(f'{trait}: {round(normalized_value, 2)}\n')
-    f.write('\n\n')
+    f.write('\n')
+
+    f.write("Results on a scale of 0 to 1\n")
+    f.write('-----------------------------\n')
+    for trait, score in trait_scores.items():
+        min_value = score["min_score"]
+        max_value = score["max_score"]
+        normalized_value = (score["score"] - min_value) / (max_value - min_value)
+        f.write(f'{trait}: {round(normalized_value, 2)}\n')
+    f.write('\n\n\n')
 
 
 def administer_test():

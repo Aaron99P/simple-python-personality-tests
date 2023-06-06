@@ -1,0 +1,21 @@
+Person 1
+*****************************
+
+Results on a scale of -1 to 1
+-----------------------------
+Openness: 0.12
+Conscientiousness: -0.25
+Extraversion: 1.0
+Agreeableness: 0.12
+Neuroticism: -0.38
+
+Results on a scale of 0 to 1
+-----------------------------
+Openness: 0.56
+Conscientiousness: 0.38
+Extraversion: 1.0
+Agreeableness: 0.56
+Neuroticism: 0.31
+
+
+
