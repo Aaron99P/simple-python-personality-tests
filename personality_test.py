@@ -117,12 +117,20 @@ def administer_test():
 
     #Show results
     print("\n\n")
-    print("Results (scale -1/1):")
+    print("Results (scale -1 to 1):")
     print("-----------------------------")
     for trait, score in trait_scores.items():
         min_value = score["min_score"]
         max_value = score["max_score"]
         normalized_value = 2 * (score["score"] - min_value) / (max_value - min_value) - 1
+        print(f'{trait}: {round(normalized_value, 2)}')
+    print("\n\n")
+    print("Results (scale 0 to 1):")
+    print("-----------------------------")
+    for trait, score in trait_scores.items():
+        min_value = score["min_score"]
+        max_value = score["max_score"]
+        normalized_value = (score["score"] - min_value) / (max_value - min_value)
         print(f'{trait}: {round(normalized_value, 2)}')
 
     #Save results
